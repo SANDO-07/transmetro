@@ -11,7 +11,7 @@ Comparativa de métricas entre el estado original del proyecto (ver `Linea-Base-
 | Pruebas totales | 8 | 58 (ver `Matriz-Pruebas.md`) | +50 |
 | Pruebas unitarias propias | 0 | 15 | +15 |
 | Pruebas de regresión dedicadas | 0 | 6 | +6 |
-| Cobertura de líneas (SonarQube Cloud, 569 líneas por cubrir) | No medida | 61.3 % (umbral del plan: ≥ 60 %). PHPUnit/Clover: 66.26 % | Cumple el umbral |
+| Cobertura de líneas (SonarQube Cloud, 569 líneas por cubrir) | No medida | 61.3 % (umbral del plan: ≥ 60 %). PHPUnit/Clover en CI: 60.13 % (273/454 líneas; el job de SQLite omite las 2 pruebas de MySQL) | Cumple el umbral |
 | Archivos con violaciones de estilo (Pint) | 2 | 0 (gate en CI) | -2 |
 | Errores PHPStan nivel 5 | 19 | 0 (gate en CI) | -19 |
 | Quality Gate de SonarQube Cloud | No existía | Passed | Nuevo |
