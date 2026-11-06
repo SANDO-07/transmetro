@@ -6,14 +6,14 @@ use App\Http\Controllers\ReporteController;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
+use PHPUnit\Framework\Attributes\Group;
 use Tests\TestCase;
 
 /**
  * Los reportes usan SQL específico de MySQL, por lo que solo se ejecutan cuando la
  * conexión de pruebas es MySQL (job "test-mysql" del pipeline). En SQLite se omiten.
- *
- * @group mysql
  */
+#[Group('mysql')]
 class ReportesMysqlTest extends TestCase
 {
     use RefreshDatabase;
