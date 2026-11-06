@@ -1,4 +1,4 @@
-﻿name: CI
+name: CI
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
           key: composer-${{ hashFiles('composer.lock') }}
       - name: Instalar dependencias
         run: composer install --no-interaction --prefer-dist --no-progress
-      - name: Validar composer.json y verificar que la aplicaciÃ³n arranca
+      - name: Validar composer.json y verificar que la aplicación arranca
         run: |
           composer validate --no-check-lock
           cp .env.example .env
@@ -45,7 +45,7 @@ jobs:
 
   # ----------------------------------------------------------------- 2. TEST
   test:
-    name: Test (unitarias, integraciÃ³n y regresiÃ³n + cobertura)
+    name: Test (unitarias, integración y regresión + cobertura)
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -62,7 +62,7 @@ jobs:
           cp .env.example .env
           php artisan key:generate
           vendor/bin/phpunit --coverage-clover=coverage.xml --coverage-text --log-junit=junit.xml
-      - name: "Quality gate: cobertura mÃ­nima"
+      - name: "Quality gate: cobertura mínima"
         run: php scripts/check-coverage.php coverage.xml ${{ env.COVERAGE_MIN }}
       - uses: actions/upload-artifact@v4
         if: always()
@@ -107,7 +107,7 @@ jobs:
 
   # --------------------------------------------------------------- 3. ANALYZE
   analyze:
-    name: Analyze (linter, anÃ¡lisis estÃ¡tico y SonarCloud)
+    name: Analyze (linter, análisis estático y SonarCloud)
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -121,9 +121,9 @@ jobs:
           coverage: none
       - name: Instalar dependencias
         run: composer install --no-interaction --prefer-dist --no-progress
-      - name: "Quality gate: estilo de cÃ³digo (Laravel Pint)"
+      - name: "Quality gate: estilo de código (Laravel Pint)"
         run: vendor/bin/pint --test
-      - name: "Quality gate: anÃ¡lisis estÃ¡tico (Larastan)"
+      - name: "Quality gate: análisis estático (Larastan)"
         run: |
           composer require --dev larastan/larastan --no-interaction --no-progress --no-scripts
           mkdir -p storage/framework/phpstan
@@ -150,7 +150,7 @@ jobs:
         continue-on-error: true
         with:
           name: test-reports
-      - name: Publicar resumen en la ejecuciÃ³n
+      - name: Publicar resumen en la ejecución
         run: |
           {
             echo "## Resumen de calidad"
@@ -162,9 +162,9 @@ jobs:
             echo "| Analyze | ${{ needs.analyze.result }} |"
             if [ -f coverage.xml ]; then
               echo ""
-              php -r '$m=simplexml_load_file("coverage.xml")->project->metrics; printf("Cobertura de lÃ­neas: **%.2f%%**\n", (int)$m["coveredstatements"]*100/max(1,(int)$m["statements"]));'
+              php -r '$m=simplexml_load_file("coverage.xml")->project->metrics; printf("Cobertura de líneas: **%.2f%%**\n", (int)$m["coveredstatements"]*100/max(1,(int)$m["statements"]));'
             fi
           } >> "$GITHUB_STEP_SUMMARY"
-      - name: Fallar si alguna etapa fallÃ³
+      - name: Fallar si alguna etapa falló
         if: ${{ needs.test.result != 'success' || needs.test-mysql.result != 'success' || needs.analyze.result != 'success' }}
         run: exit 1
