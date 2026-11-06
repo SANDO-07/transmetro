@@ -1,16 +1,15 @@
 # Transmetro
 
 [![CI](https://github.com/SANDO-07/transmetro/actions/workflows/ci.yml/badge.svg)](https://github.com/SANDO-07/transmetro/actions/workflows/ci.yml)
-[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=TU_ORGANIZACION_transmetro&metric=alert_status)](https://sonarcloud.io/dashboard?id=TU_ORGANIZACION_transmetro)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=TU_ORGANIZACION_transmetro&metric=coverage)](https://sonarcloud.io/dashboard?id=TU_ORGANIZACION_transmetro)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=TU_ORGANIZACION_transmetro&metric=bugs)](https://sonarcloud.io/dashboard?id=TU_ORGANIZACION_transmetro)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=TU_ORGANIZACION_transmetro&metric=code_smells)](https://sonarcloud.io/dashboard?id=TU_ORGANIZACION_transmetro)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=SANDO-07_transmetro&metric=alert_status)](https://sonarcloud.io/dashboard?id=SANDO-07_transmetro)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=SANDO-07_transmetro&metric=coverage)](https://sonarcloud.io/dashboard?id=SANDO-07_transmetro)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=SANDO-07_transmetro&metric=bugs)](https://sonarcloud.io/dashboard?id=SANDO-07_transmetro)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=SANDO-07_transmetro&metric=code_smells)](https://sonarcloud.io/dashboard?id=SANDO-07_transmetro)
 
 Sistema de control del Transmetro (líneas, estaciones, buses, pilotos, alertas y reportes). Laravel 13 + Blade + MySQL.
 
 Proyecto final de **Aseguramiento de la Calidad del Software (SQA)**: pipeline CI/CD con quality gates integrados.
 
-> Los badges de SonarCloud usan `TU_ORGANIZACION`; reemplácelo por el nombre de su organización en SonarCloud.
 
 ## Stack
 
