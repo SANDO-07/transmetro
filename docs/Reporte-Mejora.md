@@ -7,14 +7,18 @@ Comparativa de métricas tras la intervención. Completar la columna **Después*
 | Pruebas totales | 8 | 58 (ver `Matriz-Pruebas.md`) | +50 |
 | Pruebas unitarias propias | 0 | 15 | +15 |
 | Pruebas de regresión dedicadas | 0 | 6 | +6 |
-| Cobertura de líneas | `⟵ línea base` | `⟵ medir` (umbral ≥ 60 %) | |
+| Cobertura de líneas (SonarQube Cloud, 775 líneas por cubrir) | No medida | 45.0 % (umbral del plan: ≥ 60 %) | Pendiente de subir |
 | Violaciones de estilo (Pint) | 2 archivos | 0 (gate) | -2 |
-| Errores PHPStan nivel 5 | `⟵ línea base` | 0 (gate) | |
-| Bugs / vulnerabilidades (Sonar) | `⟵ línea base` | `⟵ medir` | |
-| Code smells (Sonar) | `⟵ línea base` | `⟵ medir` | |
-| Duplicación (Sonar) | `⟵ línea base` | `⟵ medir` | |
+| Errores PHPStan nivel 5 | 19 | 0 (gate) | -19 |
+| Vulnerabilidades / bugs (Sonar, código PHP) | Ver nota | 0 / 0 (calificación A) | Ver nota |
+| Code smells / Maintainability (Sonar) | 1 (A) | 0 (A) | -1 |
+| Duplicación (Sonar) | 0.9 % | 0.0 % | -0.9 pp |
 | Pipeline CI/CD | No | Sí (4 etapas) | |
 | Rama `main` protegida | No | Sí | |
+
+## Nota sobre las métricas de SonarQube Cloud
+
+El primer análisis (automático, 3.2k líneas) incluía las vistas Blade y reportó Security 12 y Reliability 82. El análisis posterior, ejecutado desde el pipeline, excluye `resources/views/**` (plantillas HTML mezcladas con PHP) por configuración en `sonar-project.properties` y analiza 1.5k líneas de PHP, con 0 issues. **La diferencia se debe a la exclusión del análisis y no a correcciones del código**; los issues de las vistas siguen sin revisar. Las correcciones reales de esta intervención son las de Pint (2 archivos) y Larastan (19 errores).
 
 ## Gráfico sugerido
 

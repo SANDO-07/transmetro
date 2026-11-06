@@ -20,10 +20,10 @@ Estado del proyecto **antes** de agregar pruebas, linters y pipeline. Los valore
 | Métrica | Valor inicial |
 |---|---|
 | Pruebas totales / aprobadas | 8 / 8 (100 %), 22 aserciones. PHPUnit 12.5.38, PHP 8.4.27 |
-| Cobertura de líneas | `⟵ medir` |
+| Cobertura de líneas | No medida (no había herramienta de cobertura configurada) |
 | Archivos con violaciones de estilo (Pint) | 2 de 53: `app/Models/User.php` (ordered_imports) y `bootstrap/app.php` (fully_qualified_strict_types, ordered_imports) |
-| Errores PHPStan nivel 5 | `⟵ medir` |
-| SonarCloud: bugs / vulnerabilidades / code smells / duplicación / deuda técnica | `⟵ medir` (primer análisis sobre el código original) |
+| Errores PHPStan nivel 5 | 19 (tipos de relaciones Eloquent, `catch` muertos, `abort_unless` con objeto) |
+| SonarQube Cloud, primer análisis automático (3.2k líneas, incluye vistas Blade) | Security 12 (C) · Reliability 82 (C) · Maintainability 1 (A) · Duplicación 0.9 % · Cobertura: no medida |
 
 ## 3. Cómo medir
 
