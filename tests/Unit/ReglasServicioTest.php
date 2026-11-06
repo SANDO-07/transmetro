@@ -27,7 +27,7 @@ class ReglasServicioTest extends TestCase
     public function test_estado_buses_ok_cuando_cumple_el_rango(): void
     {
         $linea = Linea::where('nombre', 'Línea 1')->first(); // 5 estaciones, 7 buses
-        $this->assertSame('ok', $this->reglas()->estadoBuses($linea));
+        $this->assertSame('fallo-intencional', $this->reglas()->estadoBuses($linea));
     }
 
     public function test_estado_buses_faltan_en_una_linea_nueva(): void
